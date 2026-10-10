@@ -10,26 +10,31 @@ const galleryImages = [
     src: gardenImage,
     alt: "Jardín del Hotel Casa Theo con pequeña piscina y vegetación",
     label: "El jardín",
+    labelKey: "gallery.garden",
   },
   {
     src: lobbyImage,
     alt: "Sala de recepción de doble altura con estructura artesanal de madera",
     label: "La sala",
+    labelKey: "gallery.living",
   },
   {
     src: cafeImage,
     alt: "Cafetería interior del hotel con mobiliario de madera",
     label: "El café",
+    labelKey: "gallery.cafe",
   },
   {
     src: receptionImage,
     alt: "Recepción del Hotel Casa Theo con acabados en madera",
     label: "La recepción",
+    labelKey: "gallery.reception",
   },
   {
     src: loftRoomImage,
     alt: "Habitación tipo loft con cama matrimonial y muros blancos",
     label: "Habitación loft",
+    labelKey: "gallery.loft",
   },
 ];
 ---
@@ -44,20 +49,21 @@ const galleryImages = [
   <div class="container-page">
     <div class="mb-10 grid items-end gap-8 lg:grid-cols-[1fr_auto]">
       <div class="max-w-3xl">
-        <p class="eyebrow !text-sand">Un vistazo a la casa</p>
+        <p class="eyebrow !text-sand" data-i18n="gallery.eyebrow">Un vistazo a la casa</p>
         <h2
           class="font-serif text-[clamp(2.8rem,5vw,5rem)] leading-[.96] tracking-[-.04em]"
           id="gallery-title"
+          data-i18n="gallery.title"
         >
           Espacios con carácter propio.
         </h2>
-        <p class="mt-6 max-w-xl leading-7 text-white/60">
+        <p class="mt-6 max-w-xl leading-7 text-white/60" data-i18n="gallery.copy">
           Rincones sencillos, luz natural y una casa pensada para sentirse
           cercana desde el primer día.
         </p>
       </div>
 
-      <div class="flex items-center gap-3" aria-label="Controles de la galería">
+      <div class="flex items-center gap-3" aria-label="Controles de la galería" data-i18n-aria-label="gallery.controls">
         <p
           class="mr-2 min-w-12 text-center text-xs tracking-[.14em] text-white/65"
           aria-live="off"
@@ -78,6 +84,7 @@ const galleryImages = [
           class="grid size-12 place-items-center rounded-full border border-white/30 text-xl transition hover:border-white hover:bg-white hover:text-pine disabled:cursor-not-allowed disabled:opacity-30"
           type="button"
           aria-label="Ver imagen anterior"
+          data-i18n-aria-label="gallery.previous"
           data-carousel-previous
         >
           <span aria-hidden="true">←</span>
@@ -86,6 +93,7 @@ const galleryImages = [
           class="grid size-12 place-items-center rounded-full border border-white/30 text-xl transition hover:border-white hover:bg-white hover:text-pine disabled:cursor-not-allowed disabled:opacity-30"
           type="button"
           aria-label="Ver imagen siguiente"
+          data-i18n-aria-label="gallery.next"
           data-carousel-next
         >
           <span aria-hidden="true">→</span>
@@ -98,6 +106,7 @@ const galleryImages = [
     class="flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:px-8 lg:gap-6 lg:px-[max(3.5rem,calc((100vw-1440px)/2+3.5rem))] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
     tabindex="0"
     aria-label="Galería fotográfica del Hotel Casa Theo"
+    data-i18n-aria-label="gallery.aria"
     data-carousel-rail
   >
     {
@@ -118,7 +127,7 @@ const galleryImages = [
             />
             <figcaption class="absolute inset-x-0 bottom-0 bg-linear-to-t from-pine-dark/80 to-transparent px-6 pt-16 pb-5">
               <span class="text-[.65rem] font-bold tracking-[.16em] text-sand uppercase">
-                {String(index + 1).padStart(2, "0")} · {image.label}
+                {String(index + 1).padStart(2, "0")} · <span data-i18n={image.labelKey}>{image.label}</span>
               </span>
             </figcaption>
           </figure>
@@ -130,7 +139,7 @@ const galleryImages = [
   <p
     class="container-page mt-4 text-[.65rem] tracking-[.12em] text-white/40 uppercase sm:hidden"
   >
-    Desliza para explorar
+    <span data-i18n="gallery.swipe">Desliza para explorar</span>
   </p>
 </section>
 

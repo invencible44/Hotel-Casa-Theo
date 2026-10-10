@@ -8,14 +8,16 @@ import favicon from "../assets/icons/favicon.svg";
 interface Props {
   title: string;
   description: string;
+  titleEn?: string;
+  descriptionEn?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, titleEn = title, descriptionEn = description } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 ---
 
 <!doctype html>
-<html lang="es">
+<html lang="es" data-theme="light" data-language="es" data-title-es={title} data-title-en={titleEn} data-description-es={description} data-description-en={descriptionEn}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -27,13 +29,30 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="es_PE" />
+    <script is:inline>
+      (() => {
+        try {
+          const savedTheme = localStorage.getItem("casa-theo-theme");
+          const systemTheme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+          document.documentElement.dataset.theme = savedTheme === "dark" || savedTheme === "light" ? savedTheme : systemTheme;
+          const savedLanguage = localStorage.getItem("casa-theo-language");
+          document.documentElement.dataset.language = savedLanguage === "en" ? "en" : "es";
+          document.documentElement.lang = savedLanguage === "en" ? "en" : "es";
+        } catch {
+          document.documentElement.dataset.theme = "light";
+        }
+      })();
+    </script>
     <title>{title}</title>
   </head>
   <body>
-    <a class="sr-only z-50 bg-white p-3 focus:not-sr-only focus:fixed focus:top-3 focus:left-3" href="#contenido">Saltar al contenido</a>
+    <a class="sr-only z-50 bg-white p-3 text-[#243029] focus:not-sr-only focus:fixed focus:top-3 focus:left-3" href="#contenido" data-i18n="accessibility.skip">Saltar al contenido</a>
     <Header />
     <main id="contenido"><slot /></main>
     <Footer />
     <WhatsAppButton />
+    <script>
+      import "../scripts/section-navigation";
+    </script>
   </body>
 </html>

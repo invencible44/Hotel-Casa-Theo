@@ -7,18 +7,24 @@ const rooms = [
   {
     name: "Patio",
     detail: "2 huéspedes · Cama king",
+    nameKey: "rooms.patio",
+    detailKey: "rooms.detail1",
     image: doubleRoomImage,
     alt: "Habitación matrimonial con ropa de cama blanca y detalles en madera",
   },
   {
     name: "Sillar",
     detail: "1 huésped · Vista al patio",
+    nameKey: "rooms.sillar",
+    detailKey: "rooms.detail2",
     image: singleRoomImage,
     alt: "Habitación individual luminosa con vista al patio del hotel",
   },
   {
     name: "Misti",
     detail: "3 huéspedes · Camas independientes",
+    nameKey: "rooms.misti",
+    detailKey: "rooms.detail3",
     image: twinRoomImage,
     alt: "Habitación triple con camas independientes y baranda de madera",
   },
@@ -28,14 +34,15 @@ const rooms = [
 <section class="container-page py-24 sm:py-30 lg:py-40" id="habitaciones">
   <div class="mb-12 grid items-end gap-7 lg:grid-cols-[1fr_.65fr]">
     <div>
-      <p class="eyebrow">Descansa a tu ritmo</p>
+      <p class="eyebrow" data-i18n="rooms.eyebrow">Descansa a tu ritmo</p>
       <h2
         class="max-w-3xl font-serif text-[clamp(2.8rem,5.8vw,5.4rem)] leading-[.95] tracking-[-.045em]"
+        data-i18n="rooms.title"
       >
         Espacios serenos, detalles con historia.
       </h2>
     </div>
-    <p class="max-w-lg leading-7 text-muted lg:justify-self-end">
+    <p class="max-w-lg leading-7 text-muted lg:justify-self-end" data-i18n="rooms.copy">
       Cada habitación conserva la textura de la casa y suma lo esencial para
       descansar bien: luz natural, materiales honestos y silencio.
     </p>
@@ -62,19 +69,20 @@ const rooms = [
           <div class="absolute inset-0 bg-linear-to-t from-pine-dark/85 via-transparent to-transparent" />
           <div class="absolute inset-x-0 bottom-0 p-7 text-white">
             <p class="mb-2 text-[.62rem] font-bold tracking-[.16em] text-sand uppercase">
-              Habitación {String(index + 1).padStart(2, "0")}
+              <span data-i18n="rooms.room">Habitación</span> {String(index + 1).padStart(2, "0")}
             </p>
             <div class="flex items-end justify-between gap-5">
               <div>
                 <>
-                  <h3 class="font-serif text-4xl">{room.name}</h3>
-                  <p class="mt-2 text-xs text-white/70">{room.detail}</p>
+                  <h3 class="font-serif text-4xl" data-i18n={room.nameKey}>{room.name}</h3>
+                  <p class="mt-2 text-xs text-white/70" data-i18n={room.detailKey}>{room.detail}</p>
                 </>
               </div>
               <a
                 class="grid size-11 place-items-center rounded-full border border-white/50 text-xl transition group-hover:bg-white group-hover:text-pine"
                 href="#reservar"
                 aria-label={`Reservar habitación ${room.name}`}
+                data-i18n-aria-label="rooms.reserve"
               >
                 ↗
               </a>

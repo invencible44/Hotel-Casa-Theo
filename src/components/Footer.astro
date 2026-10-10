@@ -2,11 +2,11 @@
 import logoCasaTheo from "../assets/brand/logo-casa-theo.webp";
 
 const links = [
-  { label: "La casa", href: "#la-casa" },
-  { label: "Habitaciones", href: "#habitaciones" },
-  { label: "Experiencias", href: "#experiencias" },
-  { label: "Galería", href: "#galeria" },
-  { label: "Ubicación", href: "#ubicacion" },
+  { label: "La casa", href: "#la-casa", translationKey: "nav.house" },
+  { label: "Habitaciones", href: "#habitaciones", translationKey: "nav.rooms" },
+  { label: "Experiencias", href: "#experiencias", translationKey: "nav.experiences" },
+  { label: "Galería", href: "#galeria", translationKey: "nav.gallery" },
+  { label: "Ubicación", href: "#ubicacion", translationKey: "nav.location" },
 ];
 ---
 
@@ -30,7 +30,7 @@ const links = [
           decoding="async"
         />
       </a>
-      <p class="mt-5 max-w-sm text-sm leading-7 text-white/60">
+      <p class="mt-5 max-w-sm text-sm leading-7 text-white/60" data-i18n="footer.copy">
         Una casa tranquila desde donde descubrir el carácter, la arquitectura y
         los sabores de Arequipa.
       </p>
@@ -39,13 +39,14 @@ const links = [
       <h2
         class="mb-5 text-[.65rem] font-bold tracking-[.18em] text-sand uppercase"
       >
-        Explora
+        <span data-i18n="footer.explore">Explora</span>
       </h2>
       {
         links.map((link) => (
           <a
             class="mb-3 block text-sm text-white/70 transition hover:text-white"
             href={link.href}
+            data-i18n={link.translationKey}
           >
             {link.label}
           </a>
@@ -56,10 +57,10 @@ const links = [
       <h2
         class="mb-5 text-[.65rem] font-bold tracking-[.18em] text-sand uppercase"
       >
-        Contacto
+        <span data-i18n="footer.contact">Contacto</span>
       </h2>
       <p class="text-sm leading-7 text-white/70">
-        Arequipa, Perú<br /><a class="hover:text-white" href="tel:+51989318651"
+        <span data-i18n="footer.address">Arequipa, Perú</span><br /><a class="hover:text-white" href="tel:+51989318651"
           >+51 989 318 651</a
         ><br /><a class="hover:text-white" href="mailto:hola@casatheo.pe"
           >hola@casatheo.pe</a
@@ -70,7 +71,7 @@ const links = [
   <div
     class="container-page flex flex-col gap-3 border-t border-white/10 py-6 text-[.68rem] text-white/45 sm:flex-row sm:justify-between"
   >
-    <p>© 2026 Casa Theo. Todos los derechos reservados.</p>
-    <p>Hotel boutique · Arequipa, Perú</p>
+    <p data-i18n="footer.rights">© 2026 Casa Theo. Todos los derechos reservados.</p>
+    <p data-i18n="footer.place">Hotel boutique · Arequipa, Perú</p>
   </div>
 </footer>

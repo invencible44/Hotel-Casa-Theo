@@ -7,26 +7,55 @@ import landscapeImage from "../assets/photos/arequipa-landscape.webp";
 import balconiesImage from "../assets/photos/hotel-balconies.webp";
 
 const services = [
-  ["01", "Desayuno local", "Productos de temporada y sabores arequipeños cada mañana."],
-  ["02", "Anfitriones cercanos", "Recomendaciones honestas para descubrir la ciudad a tu manera."],
-  ["03", "Traslado coordinado", "Te ayudamos a organizar tu llegada desde el aeropuerto o terminal."],
-  ["04", "Wi-Fi de alta velocidad", "Conexión estable en habitaciones y espacios comunes."],
+  {
+    number: "01",
+    title: "Desayuno local",
+    description: "Productos de temporada y sabores arequipeños cada mañana.",
+    titleKey: "services.breakfast",
+    descriptionKey: "services.breakfastCopy",
+  },
+  {
+    number: "02",
+    title: "Anfitriones cercanos",
+    description: "Recomendaciones honestas para descubrir la ciudad a tu manera.",
+    titleKey: "services.hosts",
+    descriptionKey: "services.hostsCopy",
+  },
+  {
+    number: "03",
+    title: "Traslado coordinado",
+    description: "Te ayudamos a organizar tu llegada desde el aeropuerto o terminal.",
+    titleKey: "services.transfer",
+    descriptionKey: "services.transferCopy",
+  },
+  {
+    number: "04",
+    title: "Wi-Fi de alta velocidad",
+    description: "Conexión estable en habitaciones y espacios comunes.",
+    titleKey: "services.wifi",
+    descriptionKey: "services.wifiCopy",
+  },
 ];
 ---
 
-<Layout title="Casa Theo — Hotel boutique en Arequipa" description="Descubre Casa Theo, un hotel boutique de arquitectura en sillar, habitaciones serenas y hospitalidad cercana en el corazón de Arequipa.">
+<Layout
+  title="Casa Theo — Hotel boutique en Arequipa"
+  titleEn="Casa Theo — Boutique hotel in Arequipa"
+  description="Descubre Casa Theo, un hotel boutique de arquitectura en sillar, habitaciones serenas y hospitalidad cercana en el corazón de Arequipa."
+  descriptionEn="Discover Casa Theo, a boutique hotel with sillar architecture, serene rooms, and warm hospitality in the heart of Arequipa."
+>
   <Hero />
 
   <section class="container-page grid gap-12 py-24 sm:py-30 lg:grid-cols-[.75fr_1.25fr] lg:gap-24 lg:py-40" id="la-casa">
     <div class="lg:pt-3">
-      <p class="eyebrow">La casa</p>
-      <p class="font-serif text-2xl leading-snug text-pine">Aquí, la historia no se exhibe.<br />Se habita.</p>
+      <p class="eyebrow" data-i18n="house.eyebrow">La casa</p>
+      <p class="font-serif text-2xl leading-snug text-pine" data-i18n="house.quote">Aquí, la historia no se exhibe.<br />Se habita.</p>
     </div>
     <div>
-      <h2 class="font-serif text-[clamp(2.8rem,5.3vw,5.1rem)] leading-[1.02] tracking-[-.045em]">Una pausa luminosa entre el sillar y el cielo arequipeño.</h2>
+      <h2 class="font-serif text-[clamp(2.8rem,5.3vw,5.1rem)] leading-[1.02] tracking-[-.045em]" data-i18n="house.title">Una pausa luminosa entre el sillar y el cielo arequipeño.</h2>
       <div class="mt-9 grid gap-8 sm:grid-cols-2">
-        <p class="leading-7 text-muted">Casa Theo recupera el espíritu de una antigua casona y lo transforma en una experiencia sencilla, cálida y contemporánea.</p>
-        <p class="leading-7 text-muted">A pocos pasos del centro histórico, cada patio invita a bajar el ritmo y a mirar Arequipa desde un lugar más íntimo.</p>
+        <p class="leading-7 text-muted" data-i18n="house.copy1">Casa Theo recupera el espíritu de una antigua casona y lo transforma en una experiencia sencilla, cálida y contemporánea.</p>
+        <p class="leading-7 text-muted" data-i18n="house.copy2">A pocos pasos del centro histórico, cada patio invita a bajar el ritmo y a mirar Arequipa desde un lugar más íntimo.</p>
       </div>
     </div>
   </section>
@@ -37,10 +66,10 @@ const services = [
     </div>
     <div class="flex items-center px-5 py-20 sm:px-10 lg:px-[clamp(4rem,8vw,9rem)] lg:py-28">
       <div class="max-w-xl">
-        <p class="eyebrow !text-sand">El arte de quedarse</p>
-        <h2 class="font-serif text-[clamp(2.8rem,5vw,5rem)] leading-[.96] tracking-[-.045em]">Días lentos.<br />Recuerdos vivos.</h2>
-        <p class="mt-7 max-w-lg leading-7 text-white/65">Del primer café en el patio a una caminata entre conventos y picanterías, diseñamos cada recomendación para acercarte al carácter real de la ciudad.</p>
-        <a class="button-light mt-9" href="#ubicacion">Explorar Arequipa</a>
+        <p class="eyebrow !text-sand" data-i18n="experience.eyebrow">El arte de quedarse</p>
+        <h2 class="font-serif text-[clamp(2.8rem,5vw,5rem)] leading-[.96] tracking-[-.045em]" data-i18n="experience.title">Días lentos.<br />Recuerdos vivos.</h2>
+        <p class="mt-7 max-w-lg leading-7 text-white/65" data-i18n="experience.copy">Del primer café en el patio a una caminata entre conventos y picanterías, diseñamos cada recomendación para acercarte al carácter real de la ciudad.</p>
+        <a class="button-light mt-9" href="#ubicacion" data-i18n="experience.cta">Explorar Arequipa</a>
       </div>
     </div>
   </section>
@@ -49,18 +78,18 @@ const services = [
 
   <Gallery />
 
-  <section class="bg-[#efe8dd] py-24 lg:py-32" aria-labelledby="servicios-title">
+  <section class="bg-[#efe8dd] py-24 dark:bg-[#141d18] lg:py-32" aria-labelledby="servicios-title">
     <div class="container-page">
-      <div class="grid gap-8 border-b border-[#cfc4b5] pb-10 lg:grid-cols-2">
-        <div><p class="eyebrow">Todo lo esencial</p><h2 class="font-serif text-[clamp(2.8rem,5vw,4.8rem)] leading-none" id="servicios-title">Cuidado en cada detalle.</h2></div>
-        <p class="max-w-lg self-end leading-7 text-muted lg:justify-self-end">Servicios pensados para que tu estancia se sienta ligera desde antes de llegar.</p>
+      <div class="grid gap-8 border-b border-[#cfc4b5] pb-10 dark:border-line lg:grid-cols-2">
+        <div><p class="eyebrow" data-i18n="services.eyebrow">Todo lo esencial</p><h2 class="font-serif text-[clamp(2.8rem,5vw,4.8rem)] leading-none" id="servicios-title" data-i18n="services.title">Cuidado en cada detalle.</h2></div>
+        <p class="max-w-lg self-end leading-7 text-muted lg:justify-self-end" data-i18n="services.copy">Servicios pensados para que tu estancia se sienta ligera desde antes de llegar.</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4">
-        {services.map(([number, title, description]) => (
-          <article class="border-b border-[#cfc4b5] py-9 sm:px-6 sm:odd:border-r lg:border-r lg:border-b-0 lg:first:pl-0 lg:last:border-r-0">
+        {services.map(({ number, title, description, titleKey, descriptionKey }) => (
+          <article class="border-b border-[#cfc4b5] py-9 dark:border-line sm:px-6 sm:odd:border-r lg:border-r lg:border-b-0 lg:first:pl-0 lg:last:border-r-0">
             <span class="text-xs font-bold text-terracotta">{number}</span>
-            <h3 class="mt-10 font-serif text-2xl">{title}</h3>
-            <p class="mt-4 text-sm leading-6 text-muted">{description}</p>
+            <h3 class="mt-10 font-serif text-2xl" data-i18n={titleKey}>{title}</h3>
+            <p class="mt-4 text-sm leading-6 text-muted" data-i18n={descriptionKey}>{description}</p>
           </article>
         ))}
       </div>
@@ -71,17 +100,17 @@ const services = [
     <div class="grid items-center gap-12 lg:grid-cols-[1.1fr_.9fr] lg:gap-24">
       <div class="relative min-h-[520px] overflow-hidden bg-sand sm:min-h-[650px]">
         <img class="absolute inset-0 size-full object-cover object-center" src={balconiesImage.src} alt="Balcones interiores y patio del Hotel Casa Theo" width={balconiesImage.width} height={balconiesImage.height} loading="lazy" decoding="async" />
-        <div class="absolute right-0 bottom-0 max-w-[15rem] bg-canvas p-6"><p class="font-serif text-2xl leading-tight">A pasos del centro histórico.</p></div>
+        <div class="absolute right-0 bottom-0 max-w-[15rem] bg-canvas p-6"><p class="font-serif text-2xl leading-tight" data-i18n="location.caption">A pasos del centro histórico.</p></div>
       </div>
       <div>
-        <p class="eyebrow">Nuestra ubicación</p>
-        <h2 class="font-serif text-[clamp(2.8rem,5vw,4.8rem)] leading-[.98] tracking-[-.04em]">Arequipa comienza al abrir la puerta.</h2>
-        <p class="mt-7 max-w-md leading-7 text-muted">Estamos en un barrio sereno, conectado con la Plaza de Armas, el Monasterio de Santa Catalina y las mesas que mejor cuentan la cocina local.</p>
+        <p class="eyebrow" data-i18n="location.eyebrow">Nuestra ubicación</p>
+        <h2 class="font-serif text-[clamp(2.8rem,5vw,4.8rem)] leading-[.98] tracking-[-.04em]" data-i18n="location.title">Arequipa comienza al abrir la puerta.</h2>
+        <p class="mt-7 max-w-md leading-7 text-muted" data-i18n="location.copy">Estamos en un barrio sereno, conectado con la Plaza de Armas, el Monasterio de Santa Catalina y las mesas que mejor cuentan la cocina local.</p>
         <dl class="mt-10 grid grid-cols-2 gap-5 border-y border-line py-7">
-          <div><dt class="text-[.62rem] font-bold tracking-[.14em] text-muted uppercase">Plaza de Armas</dt><dd class="mt-2 font-serif text-2xl">8 min</dd></div>
-          <div><dt class="text-[.62rem] font-bold tracking-[.14em] text-muted uppercase">Aeropuerto</dt><dd class="mt-2 font-serif text-2xl">25 min</dd></div>
+          <div><dt class="text-[.62rem] font-bold tracking-[.14em] text-muted uppercase" data-i18n="location.square">Plaza de Armas</dt><dd class="mt-2 font-serif text-2xl">8 min</dd></div>
+          <div><dt class="text-[.62rem] font-bold tracking-[.14em] text-muted uppercase" data-i18n="location.airport">Aeropuerto</dt><dd class="mt-2 font-serif text-2xl">25 min</dd></div>
         </dl>
-        <a class="button-primary mt-9" href="https://maps.google.com/?q=Arequipa,+Peru" target="_blank" rel="noreferrer">Ver en Google Maps <span aria-hidden="true">↗</span></a>
+        <a class="button-primary mt-9" href="https://maps.google.com/?q=Arequipa,+Peru" target="_blank" rel="noreferrer"><span data-i18n="location.map">Ver en Google Maps</span> <span aria-hidden="true">↗</span></a>
       </div>
     </div>
   </section>
@@ -89,9 +118,9 @@ const services = [
   <section class="relative isolate overflow-hidden bg-pine py-24 text-center text-white lg:py-32">
     <div class="absolute inset-0 opacity-15 [background-image:radial-gradient(circle_at_center,white_1px,transparent_1px)] [background-size:20px_20px]"></div>
     <div class="container-page relative">
-      <p class="mb-5 text-[.68rem] font-bold tracking-[.2em] text-sand uppercase">Tu casa en Arequipa</p>
-      <h2 class="mx-auto max-w-4xl font-serif text-[clamp(3rem,6vw,6rem)] leading-[.94] tracking-[-.045em]">Haz espacio para unos días diferentes.</h2>
-      <a class="button-primary mt-9" href="#reservar">Reservar estancia</a>
+      <p class="mb-5 text-[.68rem] font-bold tracking-[.2em] text-sand uppercase" data-i18n="cta.eyebrow">Tu casa en Arequipa</p>
+      <h2 class="mx-auto max-w-4xl font-serif text-[clamp(3rem,6vw,6rem)] leading-[.94] tracking-[-.045em]" data-i18n="cta.title">Haz espacio para unos días diferentes.</h2>
+      <a class="button-primary mt-9" href="#reservar" data-i18n="nav.reserveStay">Reservar estancia</a>
     </div>
   </section>
 </Layout>

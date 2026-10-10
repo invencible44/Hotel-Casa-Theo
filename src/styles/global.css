@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme {
   --color-ink: #243029;
@@ -17,6 +18,18 @@
   html {
     scroll-behavior: smooth;
     scroll-padding-top: 5rem;
+  }
+
+  html[data-theme="dark"] {
+    --color-ink: #f4efe7;
+    --color-pine: #315947;
+    --color-pine-dark: #0d1511;
+    --color-sand: #ddccb2;
+    --color-canvas: #111914;
+    --color-terracotta: #d17a5c;
+    --color-muted: #aab4ad;
+    --color-line: #354139;
+    color-scheme: dark;
   }
 
   body {

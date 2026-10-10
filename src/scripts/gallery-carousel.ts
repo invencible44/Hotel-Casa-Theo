@@ -1,4 +1,5 @@
 const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+const root = document.documentElement;
 
 document.querySelectorAll<HTMLElement>("[data-carousel]").forEach((carousel) => {
   const rail = carousel.querySelector<HTMLElement>("[data-carousel-rail]");
@@ -68,8 +69,18 @@ document.querySelectorAll<HTMLElement>("[data-carousel]").forEach((carousel) => 
   };
 
   const updateAutoplayButton = () => {
+    const isEnglish = root.dataset.language === "en";
     toggleButton.setAttribute("aria-pressed", String(isUserPaused));
-    toggleButton.setAttribute("aria-label", isUserPaused ? "Reanudar carrusel automático" : "Pausar carrusel automático");
+    toggleButton.setAttribute(
+      "aria-label",
+      isUserPaused
+        ? isEnglish
+          ? "Resume automatic carousel"
+          : "Reanudar carrusel automático"
+        : isEnglish
+          ? "Pause automatic carousel"
+          : "Pausar carrusel automático",
+    );
     toggleIcon.textContent = isUserPaused ? "▶" : "Ⅱ";
   };
 
@@ -123,6 +134,7 @@ document.querySelectorAll<HTMLElement>("[data-carousel]").forEach((carousel) => 
   window.addEventListener("resize", updateControls, { passive: true });
   document.addEventListener("visibilitychange", startAutoplay);
   reducedMotion.addEventListener("change", startAutoplay);
+  window.addEventListener("languagechange", updateAutoplayButton);
 
   const visibilityObserver = new IntersectionObserver(
     ([entry]) => {
