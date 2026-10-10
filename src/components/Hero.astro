@@ -1,0 +1,50 @@
+---
+import heroImage from "../assets/photos/hotel-courtyard-hero.webp";
+import mobileHeroImage from "../assets/photos/hotel-balconies-mobile.webp";
+---
+
+<section class="relative isolate min-h-[760px] overflow-hidden bg-pine text-white lg:min-h-[820px]" id="inicio">
+  <picture>
+    <source media="(max-width: 639px)" srcset={mobileHeroImage.src} />
+    <img
+      class="absolute inset-0 size-full object-cover object-center"
+      src={heroImage.src}
+      alt="Jardín central y arquitectura interior del Hotel Casa Theo"
+      width={heroImage.width}
+      height={heroImage.height}
+      loading="eager"
+      fetchpriority="high"
+    />
+  </picture>
+  <div class="absolute inset-0 bg-linear-to-r from-pine-dark/90 via-pine-dark/48 to-transparent"></div>
+  <div class="absolute inset-0 bg-linear-to-t from-pine-dark/55 via-transparent to-pine-dark/20"></div>
+
+  <div class="container-page relative flex min-h-[760px] items-end pt-32 pb-38 lg:min-h-[820px] lg:pb-44">
+    <div class="max-w-3xl">
+      <p class="mb-5 text-[.68rem] font-bold tracking-[.22em] text-sand uppercase">Hospitalidad en el corazón de Arequipa</p>
+      <h1 class="font-serif text-[clamp(3.8rem,8.5vw,8.2rem)] leading-[.86] tracking-[-.055em] text-balance">Una casa para<br /><em class="font-normal">sentir la ciudad.</em></h1>
+      <div class="mt-8 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
+        <a class="button-primary" href="#habitaciones">Descubrir habitaciones</a>
+        <p class="max-w-sm text-sm leading-6 text-white/75">Arquitectura de sillar, calma cotidiana y una mirada íntima a la Ciudad Blanca.</p>
+      </div>
+    </div>
+  </div>
+
+  <form class="absolute inset-x-0 bottom-0 z-10 mx-auto grid w-[calc(100%-2.5rem)] max-w-[1180px] bg-canvas p-4 text-ink shadow-xl sm:grid-cols-2 lg:grid-cols-[1fr_1fr_.75fr_auto] lg:p-0" id="reservar" aria-label="Consultar disponibilidad">
+    <label class="grid gap-1 border-line px-4 py-3 lg:border-r lg:px-7 lg:py-5">
+      <span class="text-[.62rem] font-bold tracking-[.14em] text-muted uppercase">Llegada</span>
+      <input class="min-h-7 bg-transparent text-sm font-semibold outline-none" type="date" name="llegada" required />
+    </label>
+    <label class="grid gap-1 border-line px-4 py-3 lg:border-r lg:px-7 lg:py-5">
+      <span class="text-[.62rem] font-bold tracking-[.14em] text-muted uppercase">Salida</span>
+      <input class="min-h-7 bg-transparent text-sm font-semibold outline-none" type="date" name="salida" required />
+    </label>
+    <label class="grid gap-1 px-4 py-3 lg:px-7 lg:py-5">
+      <span class="text-[.62rem] font-bold tracking-[.14em] text-muted uppercase">Huéspedes</span>
+      <select class="min-h-7 bg-transparent text-sm font-semibold outline-none" name="huespedes">
+        <option>2 huéspedes</option><option>1 huésped</option><option>3 huéspedes</option><option>4 huéspedes</option>
+      </select>
+    </label>
+    <button class="min-h-14 bg-pine px-8 text-xs font-bold tracking-[.1em] text-white uppercase transition hover:bg-pine-dark" type="submit">Ver disponibilidad</button>
+  </form>
+</section>

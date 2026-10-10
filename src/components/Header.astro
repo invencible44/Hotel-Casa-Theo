@@ -1,0 +1,39 @@
+---
+import logoCasaTheo from "../assets/brand/logo-casa-theo.webp";
+
+const navigation = [
+  { label: "La casa", href: "#la-casa" },
+  { label: "Habitaciones", href: "#habitaciones" },
+  { label: "Experiencias", href: "#experiencias" },
+  { label: "Galería", href: "#galeria" },
+  { label: "Ubicación", href: "#ubicacion" },
+];
+---
+
+<header class="absolute inset-x-0 top-0 z-30 border-b border-white/20 text-white">
+  <div class="container-page flex min-h-20 items-center justify-between gap-5 lg:min-h-24">
+    <a class="relative z-10 flex items-center" href="#inicio" aria-label="Hotel Casa Theo, ir al inicio">
+      <img class="h-16 w-auto object-contain brightness-0 invert lg:h-20" src={logoCasaTheo.src} alt="Hotel Casa Theo" width={logoCasaTheo.width} height={logoCasaTheo.height} decoding="async" />
+    </a>
+
+    <nav class="hidden items-center gap-7 lg:flex" aria-label="Navegación principal">
+      {navigation.map((item) => (
+        <a class="text-xs font-semibold tracking-[.08em] uppercase transition hover:text-sand" href={item.href}>{item.label}</a>
+      ))}
+    </nav>
+
+    <a class="hidden min-h-11 items-center border border-white bg-white px-5 text-xs font-bold tracking-[.1em] text-pine uppercase transition duration-300 hover:border-pine hover:bg-pine hover:text-white focus-visible:border-pine focus-visible:bg-pine focus-visible:text-white sm:inline-flex" href="#reservar">Reservar</a>
+
+    <details class="group relative lg:hidden">
+      <summary class="flex size-11 list-none cursor-pointer items-center justify-center border border-white/40 [&::-webkit-details-marker]:hidden" aria-label="Abrir menú">
+        <span class="grid gap-1.5" aria-hidden="true"><i class="h-px w-5 bg-white"></i><i class="h-px w-5 bg-white"></i></span>
+      </summary>
+      <nav class="absolute top-[calc(100%+1rem)] right-0 grid w-[min(19rem,calc(100vw-2.5rem))] gap-1 bg-canvas p-4 text-ink shadow-2xl" aria-label="Navegación móvil">
+        {navigation.map((item) => (
+          <a class="border-b border-line px-2 py-3 text-sm font-semibold" href={item.href}>{item.label}</a>
+        ))}
+        <a class="button-primary mt-2" href="#reservar">Reservar estancia</a>
+      </nav>
+    </details>
+  </div>
+</header>

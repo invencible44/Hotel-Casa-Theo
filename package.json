@@ -1,0 +1,16 @@
+{
+  "name": "hotel-casa-theo",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "latest",
+    "tailwindcss": "^4.3.3"
+  }
+}

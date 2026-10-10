@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #243029;
+  --color-pine: #20382f;
+  --color-pine-dark: #15271f;
+  --color-sand: #e9ddcb;
+  --color-canvas: #f8f5ef;
+  --color-terracotta: #b65f42;
+  --color-muted: #69716c;
+  --color-line: #d9d3c9;
+  --font-sans: "Helvetica Neue", Arial, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    @apply m-0 overflow-x-hidden bg-canvas font-sans text-ink antialiased;
+  }
+
+  a,
+  button,
+  input,
+  select,
+  summary {
+    @apply focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-terracotta;
+  }
+
+  ::selection {
+    background: #b65f42;
+    color: white;
+  }
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-14;
+  }
+
+  .eyebrow {
+    @apply mb-5 flex items-center gap-3 text-[.68rem] font-bold tracking-[.2em] text-terracotta uppercase before:h-px before:w-7 before:bg-current before:content-[''];
+  }
+
+  .button-primary {
+    @apply inline-flex min-h-12 items-center justify-center bg-terracotta px-6 text-sm font-bold text-white transition duration-300 hover:-translate-y-0.5 hover:bg-[#984a33];
+  }
+
+  .button-light {
+    @apply inline-flex min-h-12 items-center justify-center border border-white/50 px-6 text-sm font-bold text-white transition hover:border-white hover:bg-white hover:text-pine;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
