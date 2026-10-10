@@ -34,7 +34,7 @@ const galleryImages = [
 ];
 ---
 
-<section class="overflow-hidden bg-pine-dark py-24 text-white lg:py-36" id="galeria" aria-labelledby="gallery-title" data-carousel>
+<section class="overflow-hidden bg-pine-dark py-24 text-white lg:py-36" id="galeria" aria-labelledby="gallery-title" aria-roledescription="carrusel" data-carousel>
   <div class="container-page">
     <div class="mb-10 grid items-end gap-8 lg:grid-cols-[1fr_auto]">
       <div class="max-w-3xl">
@@ -44,7 +44,10 @@ const galleryImages = [
       </div>
 
       <div class="flex items-center gap-3" aria-label="Controles de la galería">
-        <p class="mr-2 min-w-12 text-center text-xs tracking-[.14em] text-white/65" aria-live="polite" aria-atomic="true" data-carousel-status>01 / 05</p>
+        <p class="mr-2 min-w-12 text-center text-xs tracking-[.14em] text-white/65" aria-live="off" data-carousel-status>01 / 05</p>
+        <button class="grid size-12 place-items-center rounded-full border border-white/30 text-sm transition hover:border-white hover:bg-white hover:text-pine" type="button" aria-label="Pausar carrusel automático" aria-pressed="false" data-carousel-toggle>
+          <span aria-hidden="true" data-carousel-toggle-icon>Ⅱ</span>
+        </button>
         <button class="grid size-12 place-items-center rounded-full border border-white/30 text-xl transition hover:border-white hover:bg-white hover:text-pine disabled:cursor-not-allowed disabled:opacity-30" type="button" aria-label="Ver imagen anterior" data-carousel-previous>
           <span aria-hidden="true">←</span>
         </button>
