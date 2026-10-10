@@ -1,4 +1,6 @@
 ---
+import whatsappIcon from "../assets/icons/whatsapp.svg";
+
 const whatsappUrl = "https://wa.me/51989318651";
 ---
 
@@ -10,5 +12,5 @@ const whatsappUrl = "https://wa.me/51989318651";
   aria-label="Contactar con Hotel Casa Theo por WhatsApp"
 >
   <span class="pointer-events-none absolute right-[calc(100%+.75rem)] hidden whitespace-nowrap rounded-sm bg-pine-dark px-3 py-2 text-xs font-semibold text-white opacity-0 shadow-lg transition-opacity group-hover:opacity-100 group-focus-visible:opacity-100 sm:block" aria-hidden="true">Escríbenos por WhatsApp</span>
-  <img class="size-full" src="/icons/wasapIcon.svg" alt="" width="128" height="128" aria-hidden="true" />
+  <img class="size-full" src={whatsappIcon.src} alt="" width={whatsappIcon.width} height={whatsappIcon.height} aria-hidden="true" />
 </a>
