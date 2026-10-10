@@ -34,44 +34,104 @@ const galleryImages = [
 ];
 ---
 
-<section class="overflow-hidden bg-pine-dark py-24 text-white lg:py-36" id="galeria" aria-labelledby="gallery-title" aria-roledescription="carrusel" data-carousel>
+<section
+  class="overflow-hidden bg-pine-dark py-24 text-white lg:py-36"
+  id="galeria"
+  aria-labelledby="gallery-title"
+  aria-roledescription="carrusel"
+  data-carousel
+>
   <div class="container-page">
     <div class="mb-10 grid items-end gap-8 lg:grid-cols-[1fr_auto]">
       <div class="max-w-3xl">
         <p class="eyebrow !text-sand">Un vistazo a la casa</p>
-        <h2 class="font-serif text-[clamp(2.8rem,5vw,5rem)] leading-[.96] tracking-[-.04em]" id="gallery-title">Espacios con carácter propio.</h2>
-        <p class="mt-6 max-w-xl leading-7 text-white/60">Rincones sencillos, luz natural y una casa pensada para sentirse cercana desde el primer día.</p>
+        <h2
+          class="font-serif text-[clamp(2.8rem,5vw,5rem)] leading-[.96] tracking-[-.04em]"
+          id="gallery-title"
+        >
+          Espacios con carácter propio.
+        </h2>
+        <p class="mt-6 max-w-xl leading-7 text-white/60">
+          Rincones sencillos, luz natural y una casa pensada para sentirse
+          cercana desde el primer día.
+        </p>
       </div>
 
       <div class="flex items-center gap-3" aria-label="Controles de la galería">
-        <p class="mr-2 min-w-12 text-center text-xs tracking-[.14em] text-white/65" aria-live="off" data-carousel-status>01 / 05</p>
-        <button class="grid size-12 place-items-center rounded-full border border-white/30 text-sm transition hover:border-white hover:bg-white hover:text-pine" type="button" aria-label="Pausar carrusel automático" aria-pressed="false" data-carousel-toggle>
+        <p
+          class="mr-2 min-w-12 text-center text-xs tracking-[.14em] text-white/65"
+          aria-live="off"
+          data-carousel-status
+        >
+          01 / 05
+        </p>
+        <button
+          class="grid size-12 place-items-center rounded-full border border-white/30 text-sm transition hover:border-white hover:bg-white hover:text-pine"
+          type="button"
+          aria-label="Pausar carrusel automático"
+          aria-pressed="false"
+          data-carousel-toggle
+        >
           <span aria-hidden="true" data-carousel-toggle-icon>Ⅱ</span>
         </button>
-        <button class="grid size-12 place-items-center rounded-full border border-white/30 text-xl transition hover:border-white hover:bg-white hover:text-pine disabled:cursor-not-allowed disabled:opacity-30" type="button" aria-label="Ver imagen anterior" data-carousel-previous>
+        <button
+          class="grid size-12 place-items-center rounded-full border border-white/30 text-xl transition hover:border-white hover:bg-white hover:text-pine disabled:cursor-not-allowed disabled:opacity-30"
+          type="button"
+          aria-label="Ver imagen anterior"
+          data-carousel-previous
+        >
           <span aria-hidden="true">←</span>
         </button>
-        <button class="grid size-12 place-items-center rounded-full border border-white/30 text-xl transition hover:border-white hover:bg-white hover:text-pine disabled:cursor-not-allowed disabled:opacity-30" type="button" aria-label="Ver imagen siguiente" data-carousel-next>
+        <button
+          class="grid size-12 place-items-center rounded-full border border-white/30 text-xl transition hover:border-white hover:bg-white hover:text-pine disabled:cursor-not-allowed disabled:opacity-30"
+          type="button"
+          aria-label="Ver imagen siguiente"
+          data-carousel-next
+        >
           <span aria-hidden="true">→</span>
         </button>
       </div>
     </div>
   </div>
 
-  <ul class="flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:px-8 lg:gap-6 lg:px-[max(3.5rem,calc((100vw-1440px)/2+3.5rem))] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden" tabindex="0" aria-label="Galería fotográfica del Hotel Casa Theo" data-carousel-rail>
-    {galleryImages.map((image, index) => (
-      <li class="group relative aspect-[4/3] min-w-0 shrink-0 basis-[88%] snap-start overflow-hidden bg-pine sm:basis-[66%] lg:basis-[43%]" data-carousel-slide>
-        <figure class="size-full">
-          <img class="size-full object-cover transition duration-700 group-hover:scale-[1.025]" src={image.src.src} alt={image.alt} width={image.src.width} height={image.src.height} loading="lazy" decoding="async" />
-          <figcaption class="absolute inset-x-0 bottom-0 bg-linear-to-t from-pine-dark/80 to-transparent px-6 pt-16 pb-5">
-            <span class="text-[.65rem] font-bold tracking-[.16em] text-sand uppercase">{String(index + 1).padStart(2, "0")} · {image.label}</span>
-          </figcaption>
-        </figure>
-      </li>
-    ))}
+  <ul
+    class="flex snap-x snap-mandatory gap-4 overflow-x-auto px-5 pb-4 sm:px-8 lg:gap-6 lg:px-[max(3.5rem,calc((100vw-1440px)/2+3.5rem))] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden"
+    tabindex="0"
+    aria-label="Galería fotográfica del Hotel Casa Theo"
+    data-carousel-rail
+  >
+    {
+      galleryImages.map((image, index) => (
+        <li
+          class="group relative aspect-[4/3] min-w-0 shrink-0 basis-[88%] snap-start overflow-hidden bg-pine sm:basis-[66%] lg:basis-[43%]"
+          data-carousel-slide
+        >
+          <figure class="size-full">
+            <img
+              class="size-full object-cover transition duration-700 group-hover:scale-[1.025]"
+              src={image.src.src}
+              alt={image.alt}
+              width={image.src.width}
+              height={image.src.height}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption class="absolute inset-x-0 bottom-0 bg-linear-to-t from-pine-dark/80 to-transparent px-6 pt-16 pb-5">
+              <span class="text-[.65rem] font-bold tracking-[.16em] text-sand uppercase">
+                {String(index + 1).padStart(2, "0")} · {image.label}
+              </span>
+            </figcaption>
+          </figure>
+        </li>
+      ))
+    }
   </ul>
 
-  <p class="container-page mt-4 text-[.65rem] tracking-[.12em] text-white/40 uppercase sm:hidden">Desliza para explorar</p>
+  <p
+    class="container-page mt-4 text-[.65rem] tracking-[.12em] text-white/40 uppercase sm:hidden"
+  >
+    Desliza para explorar
+  </p>
 </section>
 
 <script>

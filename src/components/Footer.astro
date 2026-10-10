@@ -11,23 +11,65 @@ const links = [
 ---
 
 <footer class="bg-pine-dark text-white">
-  <div class="container-page grid gap-14 py-18 sm:grid-cols-2 lg:grid-cols-[1.5fr_.7fr_.9fr] lg:py-24">
+  <div
+    class="container-page grid gap-14 py-18 sm:grid-cols-2 lg:grid-cols-[1.5fr_.7fr_.9fr] lg:py-24"
+  >
     <div>
-      <a class="inline-flex" href="#inicio" aria-label="Hotel Casa Theo, ir al inicio">
-        <img class="h-28 w-auto object-contain brightness-0 invert" src={logoCasaTheo.src} alt="Hotel Casa Theo" width={logoCasaTheo.width} height={logoCasaTheo.height} loading="lazy" decoding="async" />
+      <a
+        class="inline-flex"
+        href="#inicio"
+        aria-label="Hotel Casa Theo, ir al inicio"
+      >
+        <img
+          class="h-28 w-auto object-contain brightness-0 invert"
+          src={logoCasaTheo.src}
+          alt="Hotel Casa Theo"
+          width={logoCasaTheo.width}
+          height={logoCasaTheo.height}
+          loading="lazy"
+          decoding="async"
+        />
       </a>
-      <p class="mt-5 max-w-sm text-sm leading-7 text-white/60">Una casa tranquila desde donde descubrir el carácter, la arquitectura y los sabores de Arequipa.</p>
+      <p class="mt-5 max-w-sm text-sm leading-7 text-white/60">
+        Una casa tranquila desde donde descubrir el carácter, la arquitectura y
+        los sabores de Arequipa.
+      </p>
     </div>
     <nav aria-label="Navegación de pie de página">
-      <h2 class="mb-5 text-[.65rem] font-bold tracking-[.18em] text-sand uppercase">Explora</h2>
-      {links.map((link) => <a class="mb-3 block text-sm text-white/70 transition hover:text-white" href={link.href}>{link.label}</a>)}
+      <h2
+        class="mb-5 text-[.65rem] font-bold tracking-[.18em] text-sand uppercase"
+      >
+        Explora
+      </h2>
+      {
+        links.map((link) => (
+          <a
+            class="mb-3 block text-sm text-white/70 transition hover:text-white"
+            href={link.href}
+          >
+            {link.label}
+          </a>
+        ))
+      }
     </nav>
     <address class="not-italic">
-      <h2 class="mb-5 text-[.65rem] font-bold tracking-[.18em] text-sand uppercase">Contacto</h2>
-      <p class="text-sm leading-7 text-white/70">Arequipa, Perú<br /><a class="hover:text-white" href="tel:+51989318651">+51 989 318 651</a><br /><a class="hover:text-white" href="mailto:hola@casatheo.pe">hola@casatheo.pe</a></p>
+      <h2
+        class="mb-5 text-[.65rem] font-bold tracking-[.18em] text-sand uppercase"
+      >
+        Contacto
+      </h2>
+      <p class="text-sm leading-7 text-white/70">
+        Arequipa, Perú<br /><a class="hover:text-white" href="tel:+51989318651"
+          >+51 989 318 651</a
+        ><br /><a class="hover:text-white" href="mailto:hola@casatheo.pe"
+          >hola@casatheo.pe</a
+        >
+      </p>
     </address>
   </div>
-  <div class="container-page flex flex-col gap-3 border-t border-white/10 py-6 text-[.68rem] text-white/45 sm:flex-row sm:justify-between">
+  <div
+    class="container-page flex flex-col gap-3 border-t border-white/10 py-6 text-[.68rem] text-white/45 sm:flex-row sm:justify-between"
+  >
     <p>© 2026 Casa Theo. Todos los derechos reservados.</p>
     <p>Hotel boutique · Arequipa, Perú</p>
   </div>

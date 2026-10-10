@@ -29,24 +29,59 @@ const rooms = [
   <div class="mb-12 grid items-end gap-7 lg:grid-cols-[1fr_.65fr]">
     <div>
       <p class="eyebrow">Descansa a tu ritmo</p>
-      <h2 class="max-w-3xl font-serif text-[clamp(2.8rem,5.8vw,5.4rem)] leading-[.95] tracking-[-.045em]">Espacios serenos, detalles con historia.</h2>
+      <h2
+        class="max-w-3xl font-serif text-[clamp(2.8rem,5.8vw,5.4rem)] leading-[.95] tracking-[-.045em]"
+      >
+        Espacios serenos, detalles con historia.
+      </h2>
     </div>
-    <p class="max-w-lg leading-7 text-muted lg:justify-self-end">Cada habitación conserva la textura de la casa y suma lo esencial para descansar bien: luz natural, materiales honestos y silencio.</p>
+    <p class="max-w-lg leading-7 text-muted lg:justify-self-end">
+      Cada habitación conserva la textura de la casa y suma lo esencial para
+      descansar bien: luz natural, materiales honestos y silencio.
+    </p>
   </div>
 
   <div class="grid gap-5 lg:grid-cols-3">
-    {rooms.map((room, index) => (
-      <article class:list={["group relative min-h-[490px] overflow-hidden bg-sand", { "lg:mt-14": index === 1 }]}>
-        <img class="absolute inset-0 size-full object-cover transition duration-700 group-hover:scale-[1.025]" src={room.image.src} alt={room.alt} width={room.image.width} height={room.image.height} loading="lazy" decoding="async" />
-        <div class="absolute inset-0 bg-linear-to-t from-pine-dark/85 via-transparent to-transparent"></div>
-        <div class="absolute inset-x-0 bottom-0 p-7 text-white">
-          <p class="mb-2 text-[.62rem] font-bold tracking-[.16em] text-sand uppercase">Habitación {String(index + 1).padStart(2, "0")}</p>
-          <div class="flex items-end justify-between gap-5">
-            <div><h3 class="font-serif text-4xl">{room.name}</h3><p class="mt-2 text-xs text-white/70">{room.detail}</p></div>
-            <a class="grid size-11 place-items-center rounded-full border border-white/50 text-xl transition group-hover:bg-white group-hover:text-pine" href="#reservar" aria-label={`Reservar habitación ${room.name}`}>↗</a>
+    {
+      rooms.map((room, index) => (
+        <article
+          class:list={[
+            "group relative min-h-[490px] overflow-hidden bg-sand",
+            { "lg:mt-14": index === 1 },
+          ]}
+        >
+          <img
+            class="absolute inset-0 size-full object-cover transition duration-700 group-hover:scale-[1.025]"
+            src={room.image.src}
+            alt={room.alt}
+            width={room.image.width}
+            height={room.image.height}
+            loading="lazy"
+            decoding="async"
+          />
+          <div class="absolute inset-0 bg-linear-to-t from-pine-dark/85 via-transparent to-transparent" />
+          <div class="absolute inset-x-0 bottom-0 p-7 text-white">
+            <p class="mb-2 text-[.62rem] font-bold tracking-[.16em] text-sand uppercase">
+              Habitación {String(index + 1).padStart(2, "0")}
+            </p>
+            <div class="flex items-end justify-between gap-5">
+              <div>
+                <>
+                  <h3 class="font-serif text-4xl">{room.name}</h3>
+                  <p class="mt-2 text-xs text-white/70">{room.detail}</p>
+                </>
+              </div>
+              <a
+                class="grid size-11 place-items-center rounded-full border border-white/50 text-xl transition group-hover:bg-white group-hover:text-pine"
+                href="#reservar"
+                aria-label={`Reservar habitación ${room.name}`}
+              >
+                ↗
+              </a>
+            </div>
           </div>
-        </div>
-      </article>
-    ))}
+        </article>
+      ))
+    }
   </div>
 </section>
