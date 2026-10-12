@@ -6,27 +6,48 @@ import twinRoomImage from "../assets/photos/room-twin.jpg";
 const rooms = [
   {
     name: "Patio",
+    nameEn: "Patio",
     detail: "2 huéspedes · Cama king",
+    detailEn: "2 guests · King bed",
+    description:
+      "Una habitación amplia y serena, con cama king, luz natural y detalles cálidos de madera para descansar en pareja.",
+    descriptionEn:
+      "A spacious, serene room with a king bed, natural light, and warm wood details designed for a restful stay for two.",
     nameKey: "rooms.patio",
     detailKey: "rooms.detail1",
     image: doubleRoomImage,
     alt: "Habitación matrimonial con ropa de cama blanca y detalles en madera",
+    altEn: "Double room with white bed linen and warm wood details",
   },
   {
     name: "Sillar",
+    nameEn: "Sillar",
     detail: "1 huésped · Vista al patio",
+    detailEn: "1 guest · Courtyard view",
+    description:
+      "Un refugio luminoso y silencioso para una persona, con vista al patio y todo lo esencial para una estancia cómoda.",
+    descriptionEn:
+      "A bright, quiet retreat for one guest, with a courtyard view and everything needed for a comfortable stay.",
     nameKey: "rooms.sillar",
     detailKey: "rooms.detail2",
     image: singleRoomImage,
     alt: "Habitación individual luminosa con vista al patio del hotel",
+    altEn: "Bright single room overlooking the hotel courtyard",
   },
   {
     name: "Misti",
+    nameEn: "Misti",
     detail: "3 huéspedes · Camas independientes",
+    detailEn: "3 guests · Separate beds",
+    description:
+      "Una habitación versátil para compartir, con camas independientes, amplitud y detalles tradicionales que conservan el carácter de la casa.",
+    descriptionEn:
+      "A versatile room to share, with separate beds, generous space, and traditional details that preserve the house's character.",
     nameKey: "rooms.misti",
     detailKey: "rooms.detail3",
     image: twinRoomImage,
     alt: "Habitación triple con camas independientes y baranda de madera",
+    altEn: "Triple room with separate beds and a wooden railing",
   },
 ];
 ---
@@ -42,7 +63,10 @@ const rooms = [
         Espacios serenos, detalles con historia.
       </h2>
     </div>
-    <p class="max-w-lg leading-7 text-muted lg:justify-self-end" data-i18n="rooms.copy">
+    <p
+      class="max-w-lg leading-7 text-muted lg:justify-self-end"
+      data-i18n="rooms.copy"
+    >
       Cada habitación conserva la textura de la casa y suma lo esencial para
       descansar bien: luz natural, materiales honestos y silencio.
     </p>
@@ -53,10 +77,31 @@ const rooms = [
       rooms.map((room, index) => (
         <article
           class:list={[
-            "group relative min-h-[490px] overflow-hidden bg-sand",
+            "group relative min-h-[490px] cursor-zoom-in overflow-hidden bg-sand focus-within:outline-2 focus-within:outline-offset-4 focus-within:outline-terracotta",
             { "lg:mt-14": index === 1 },
           ]}
         >
+          <button
+            class="absolute inset-0 z-10 cursor-zoom-in"
+            type="button"
+            aria-label={`Ver detalles de la habitación ${room.name}`}
+            aria-haspopup="dialog"
+            aria-controls="room-details-dialog"
+            data-room-open
+            data-room-name-es={room.name}
+            data-room-name-en={room.nameEn}
+            data-room-detail-es={room.detail}
+            data-room-detail-en={room.detailEn}
+            data-room-description-es={room.description}
+            data-room-description-en={room.descriptionEn}
+            data-room-alt-es={room.alt}
+            data-room-alt-en={room.altEn}
+            data-room-image={room.image.src}
+          >
+            <span class="sr-only">
+              Ver detalles de la habitación {room.name}
+            </span>
+          </button>
           <img
             class="absolute inset-0 size-full object-cover transition duration-700 group-hover:scale-[1.025]"
             src={room.image.src}
@@ -67,19 +112,33 @@ const rooms = [
             decoding="async"
           />
           <div class="absolute inset-0 bg-linear-to-t from-pine-dark/85 via-transparent to-transparent" />
-          <div class="absolute inset-x-0 bottom-0 p-7 text-white">
+          <div class="pointer-events-none absolute inset-x-0 bottom-0 z-20 p-7 text-white">
             <p class="mb-2 text-[.62rem] font-bold tracking-[.16em] text-sand uppercase">
-              <span data-i18n="rooms.room">Habitación</span> {String(index + 1).padStart(2, "0")}
+              <span data-i18n="rooms.room">Habitación</span>{" "}
+              {String(index + 1).padStart(2, "0")}
             </p>
             <div class="flex items-end justify-between gap-5">
               <div>
                 <>
-                  <h3 class="font-serif text-4xl" data-i18n={room.nameKey}>{room.name}</h3>
-                  <p class="mt-2 text-xs text-white/70" data-i18n={room.detailKey}>{room.detail}</p>
+                  <h3 class="font-serif text-4xl" data-i18n={room.nameKey}>
+                    {room.name}
+                  </h3>
+                  <p
+                    class="mt-2 text-xs text-white/70"
+                    data-i18n={room.detailKey}
+                  >
+                    {room.detail}
+                  </p>
+                  <span
+                    class="mt-4 inline-block text-[.62rem] font-bold tracking-[.14em] text-sand uppercase"
+                    data-i18n="rooms.viewDetails"
+                  >
+                    Ver detalles
+                  </span>
                 </>
               </div>
               <a
-                class="grid size-11 place-items-center rounded-full border border-white/50 text-xl transition group-hover:bg-white group-hover:text-pine"
+                class="pointer-events-auto relative z-30 grid size-11 place-items-center rounded-full border border-white/50 text-xl transition group-hover:bg-white group-hover:text-pine"
                 href="#reservar"
                 aria-label={`Reservar habitación ${room.name}`}
                 data-i18n-aria-label="rooms.reserve"
@@ -93,3 +152,101 @@ const rooms = [
     }
   </div>
 </section>
+
+<dialog
+  class="room-dialog m-auto max-h-[92dvh] w-[calc(100%-2rem)] max-w-6xl overflow-y-auto border-0 bg-canvas p-0 text-ink shadow-[0_30px_90px_rgba(5,12,8,.45)] sm:w-[calc(100%-4rem)]"
+  id="room-details-dialog"
+  aria-labelledby="room-dialog-title"
+  aria-describedby="room-dialog-description"
+  data-room-modal
+>
+  <div class="grid min-h-0 lg:grid-cols-[1.35fr_.65fr]">
+    <figure
+      class="min-h-[280px] overflow-hidden bg-sand sm:min-h-[420px] lg:min-h-[620px]"
+    >
+      <img
+        class="size-full min-h-[280px] object-cover sm:min-h-[420px] lg:min-h-[620px]"
+        alt=""
+        width="1280"
+        height="853"
+        decoding="async"
+        data-room-modal-image
+      />
+    </figure>
+
+    <article
+      class="relative flex flex-col justify-center px-6 py-14 sm:px-10 lg:px-12"
+    >
+      <button
+        class="absolute top-5 right-5 grid size-11 place-items-center rounded-full border border-line text-xl transition hover:border-terracotta hover:text-terracotta"
+        type="button"
+        aria-label="Cerrar detalles de la habitación"
+        data-i18n-aria-label="rooms.closeLabel"
+        data-room-modal-close
+      >
+        <span aria-hidden="true">×</span>
+      </button>
+      <p class="eyebrow" data-i18n="rooms.modalEyebrow">Habitación Casa Theo</p>
+      <h2
+        class="font-serif text-[clamp(2.8rem,6vw,4.8rem)] leading-none"
+        id="room-dialog-title"
+        data-room-modal-title
+      >
+      </h2>
+      <p
+        class="mt-5 text-xs font-bold tracking-[.12em] text-terracotta uppercase"
+        data-room-modal-detail
+      >
+      </p>
+      <p
+        class="mt-7 leading-7 text-muted"
+        id="room-dialog-description"
+        data-room-modal-description
+      >
+      </p>
+      <a
+        class="button-primary mt-9 self-start"
+        href="#reservar"
+        data-i18n="rooms.reserveThis"
+        data-room-modal-reserve>Reservar esta habitación</a
+      >
+    </article>
+  </div>
+</dialog>
+
+<script>
+  import "../scripts/room-modal";
+</script>
+
+<style>
+  .room-dialog {
+    opacity: 0;
+    transform: translateY(1rem) scale(0.985);
+    transition:
+      opacity 250ms ease,
+      transform 250ms ease;
+  }
+
+  .room-dialog::backdrop {
+    background-color: rgb(7 15 11 / 0%);
+    transition: background-color 250ms ease;
+  }
+
+  .room-dialog[data-state="open"] {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    transition-duration: 1500ms;
+  }
+
+  .room-dialog[data-state="open"]::backdrop {
+    background-color: rgb(7 15 11 / 78%);
+    transition-duration: 1500ms;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .room-dialog,
+    .room-dialog::backdrop {
+      transition-duration: 0.01ms;
+    }
+  }
+</style>

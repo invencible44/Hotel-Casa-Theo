@@ -9,20 +9,39 @@ import Layout from "../layouts/Layout.astro";
   description="Página aislada para probar la integración del Search Widget oficial de Hotel Link con datos de demostración."
   descriptionEn="Isolated page for testing the official Hotel Link Search Widget integration with demonstration data."
 >
-  <section class="relative min-h-screen bg-[#efe8dd] px-5 pt-36 pb-24 dark:bg-[#141d18] sm:px-8 sm:pt-44 lg:px-14 lg:pt-48">
+  <section
+    class="relative min-h-screen bg-[#efe8dd] px-5 pt-36 pb-24 dark:bg-[#141d18] sm:px-8 sm:pt-44 lg:px-14 lg:pt-48"
+  >
     <div class="absolute inset-x-0 top-0 h-28 bg-pine" aria-hidden="true"></div>
     <div class="relative mx-auto max-w-5xl">
       <header class="mb-10 max-w-3xl">
         <p class="eyebrow" data-i18n="test.eyebrow">Integración de prueba</p>
-        <h1 class="font-serif text-[clamp(3rem,7vw,6rem)] leading-[.92] tracking-[-.05em] text-pine" data-i18n="test.title">Reserva con Hotel Link.</h1>
-        <p class="mt-6 max-w-2xl leading-7 text-muted" data-i18n="test.copy">Este entorno utiliza exclusivamente el Search Widget y los datos de demostración publicados en la documentación oficial de Hotel Link. No contiene información real de Casa Theo.</p>
+        <h1
+          class="font-serif text-[clamp(3rem,7vw,6rem)] leading-[.92] tracking-[-.05em] text-pine"
+          data-i18n="test.title"
+        >
+          Reserva con Hotel Link.
+        </h1>
+        <p class="mt-6 max-w-2xl leading-7 text-muted" data-i18n="test.copy">
+          Este entorno utiliza exclusivamente el Search Widget y los datos de
+          demostración publicados en la documentación oficial de Hotel Link. No
+          contiene información real de Casa Theo.
+        </p>
       </header>
 
       <HotelLinkBooking />
 
-      <aside class="mt-6 rounded-xl border border-terracotta/20 bg-terracotta/5 px-5 py-4 text-sm leading-6 text-muted" aria-label="Aviso sobre la integración">
-        <strong class="text-ink" data-i18n="test.noticeTitle">Solo para validación técnica.</strong>
-        <span data-i18n="test.notice">El identificador de demostración deberá sustituirse antes de una integración real.</span>
+      <aside
+        class="mt-6 rounded-xl border border-terracotta/20 bg-terracotta/5 px-5 py-4 text-sm leading-6 text-muted"
+        aria-label="Aviso sobre la integración"
+      >
+        <strong class="text-ink" data-i18n="test.noticeTitle"
+          >Solo para validación técnica.</strong
+        >
+        <span data-i18n="test.notice"
+          >El identificador de demostración deberá sustituirse antes de una
+          integración real.</span
+        >
       </aside>
     </div>
   </section>
